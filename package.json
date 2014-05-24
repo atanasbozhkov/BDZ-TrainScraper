@@ -1,0 +1,15 @@
+{
+  "name": "TrainSearch",
+  "version": "0.0.0",
+  "description": "An app for querying http://bdz.bg for dekstop and mobile",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Atanas Bozhkov <bozhkov.atanas@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.3.1",
+    "querystring": "^0.2.0"
+  }
+}
