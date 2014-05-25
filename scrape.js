@@ -1,5 +1,5 @@
 //For building the query string
-var scrape = function(data, callback) {
+var scrape = function(input, callback) {
     var querystring = require('querystring');
     var http = require('http');
 
@@ -23,26 +23,29 @@ var scrape = function(data, callback) {
 
         return post_data;
     }
-  
-    var input = {}
-    input.from_station = "София"
-    input.to_station = "Варна"
-    input.via_station = ""
-    input.via_min_time = "00:01"
-    input.date = "25/05/2014"
-    input.dep_arr = "1"
-    input.time_from = "00:00"
-    input.time_to = "24:00"
-    input.all_cats = "checked"
-    input.cardld = "30"
-    input.class = "0"
-    input.sort_by = "0"
-    input.x = "24"
-    input.y = "12"
 
-    data.from === undefined ? console.log('No `from` input') : console.log('There is input')
-    data.to === undefined ? console.log('No `to` input') : console.log('There is input')
-    var post_data = buildPostReq(input);
+    var data = {}
+    data.from_station = "София"
+    data.to_station = "Варна"
+    data.via_station = ""
+    data.via_min_time = "00:01"
+    data.date = "25/05/2014"
+    data.dep_arr = "1"
+    data.time_from = "00:00"
+    data.time_to = "24:00"
+    data.all_cats = "checked"
+    data.cardld = "30"
+    data.class = "0"
+    data.sort_by = "0"
+    data.x = "24"
+    data.y = "12"
+
+    //Adopt new parameters
+    input.from === undefined ? console.log('No `from` input') : data.from_station = input.from;
+    input.to === undefined ? console.log('No `to` input') : data.to_station = input.to;
+    input.date === undefined ? console.log('No `to` input') : data.date = input.date;
+    //TODO: add more parameters that can be queried.
+    var post_data = buildPostReq(data);
     // console.log(post_data);
     var options = {
         host: 'razpisanie.bdz.bg',
