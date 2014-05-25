@@ -1,5 +1,5 @@
 //For building the query string
-var scrape = function(callback) {
+var scrape = function(data, callback) {
     var querystring = require('querystring');
     var http = require('http');
 
@@ -23,7 +23,7 @@ var scrape = function(callback) {
 
         return post_data;
     }
-
+  
     var input = {}
     input.from_station = "София"
     input.to_station = "Варна"
@@ -40,6 +40,8 @@ var scrape = function(callback) {
     input.x = "24"
     input.y = "12"
 
+    data.from === undefined ? console.log('No `from` input') : console.log('There is input')
+    data.to === undefined ? console.log('No `to` input') : console.log('There is input')
     var post_data = buildPostReq(input);
     // console.log(post_data);
     var options = {

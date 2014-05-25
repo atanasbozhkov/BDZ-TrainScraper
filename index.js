@@ -3,14 +3,15 @@ var s = require('./scrape')
 var app = express();
 
 app.get('/', function(req, res) {
-    s.scrape(function(data) {
-        var urlParams = {
-            from: req.query.from,
-            to: req.query.to
-        }
+     var urlParams = {
+        from: req.query.from,
+        to: req.query.to,
+        date: req.query.date
+     }
+    s.scrape(function(urlParams, data) {
         // var from = req.query.from;
         // var to = req.query.to;
-        console.log(urlParams.to);
+//        console.log(urlParams.to);
         res.send(data);
     })
 });
